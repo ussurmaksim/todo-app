@@ -1,3 +1,6 @@
+
+
+
 .startPage {
     height: 100vh;
 }
@@ -10,13 +13,13 @@
 }
 
 .step {
-    background-color: rgba(217, 217, 217, 1);
+    background-color: #111;
     height: 7px;
     max-width: 205px;
     border-radius: 5px;
 }
 .step.active {
-    background-color: rgba(0, 0, 0, 1);
+    background-color: #DAFF3E;
 }
 
 .regHeading {
@@ -24,4 +27,38 @@
     color: #000;
     margin: 32px auto;
     text-align: center;
+}
+
+.regForm input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+    border-radius: 5px;
+    border: 1px solid #000;
+    margin: 15px 0;
+}
+
+.regForm input:focus {
+    outline: none;
+}
+
+.regForm input::placeholder {
+    color: #c3c3c3;
+}
+
+.regForm {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.regForm .form {
+    width: 415px;
+}
+
+.errorInput {
+    margin: -13px 0 0;
+    color: #E90000;
+    font-size: 12px;
 }

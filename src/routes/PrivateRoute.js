@@ -1,21 +1,9 @@
 import React from "react"
-import {Navigate} from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-
+const PrivateRoute = ({ element: Component, ...rest }) => {
     const token = localStorage.getItem("token")
-
-    return (
-    <>
-        {token ? (
-            <Navigate to={<Component {...rest} />} />
-        ) : (
-            <Navigate to={{ pathname: "/" }} />
-        )
-        }
-    </>
-    )
-
+    return token ? <Component {...rest} /> : <Navigate to="/" />
 }
 
 export default PrivateRoute;
