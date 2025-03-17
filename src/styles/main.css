@@ -1,0 +1,27 @@
+.startPage {
+    height: 100vh;
+}
+
+.stepsWrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.step {
+    background-color: rgba(217, 217, 217, 1);
+    height: 7px;
+    max-width: 205px;
+    border-radius: 5px;
+}
+.step.active {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.regHeading {
+    font-size: 50px;
+    color: #000;
+    margin: 32px auto;
+    text-align: center;
+}
