@@ -1,3 +1,6 @@
+body {
+    background-color: #222;
+}
 
 .startPage {
     height: 100vh;
@@ -11,18 +14,19 @@
 }
 
 .step {
-    background-color: #111;
+    background-color: #fff;
     height: 7px;
     max-width: 205px;
     border-radius: 5px;
 }
+
 .step.active {
     background-color: #DAFF3E;
 }
 
 .regHeading {
     font-size: 50px;
-    color: #000;
+    color: #fff;
     margin: 32px auto;
     text-align: center;
 }
@@ -31,10 +35,11 @@
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    color: #000;
+    color: #fff;
     border-radius: 5px;
-    border: 1px solid #000;
+    border: 1px solid #fff;
     margin: 15px 0;
+    background-color: #111;
 }
 
 .regForm input:focus {
@@ -52,7 +57,7 @@
 }
 
 .regForm .form {
-    width: 415px;
+    width: 550px;
 }
 
 .errorInput {
@@ -69,8 +74,11 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .listSizes {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+    width: 100%;
+    padding: 0;
+
 }
 
 .listSizeItem {
@@ -87,27 +95,43 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .form_radio_btn label {
     display: inline-block;
     cursor: pointer;
-    border: 1px solid #000;
+    border: 1px solid #fff;
+    color: #fff;
     width: 100px;
     font-size: 16px;
     border-radius: 5px;
     padding: 10px;
     user-select: none;
     text-align: center;
+
+    transition: all 0.2s;
 }
 
 /* Checked */
 .form_radio_btn input[type=radio]:checked + label {
     background: #DAFF3E;
+    color: #111;
+    border: 1px solid #daff3e;
 }
 
 /* Hover */
 .form_radio_btn label:hover {
     background-color: #DAFF3E;
+    color: #111;
+    border: 1px solid #daff3e;
 }
 
 /* Disabled */
 .form_radio_btn input[type=radio]:disabled + label {
     background: #efefef;
     color: #666;
+}
+
+.btnBack {
+    color: #fff;
+}
+
+.teamHeading {
+    font-size: 24px;
+    color: #fff;
 }

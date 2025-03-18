@@ -80,7 +80,7 @@ class RegPage extends React.Component {
 
 
                 <div className="d-flex justify-content-center mt-2">
-                    {step !== 1 && <p className="btn" onClick={() => {this.handleBack();}}>Назад</p>}
+                    {step !== 1 && <p className="btn btnBack" onClick={() => {this.handleBack();}}>Назад</p>}
                     {step === 1 && <Link to={"/login"}>Уже есть аккаунт? Войдите</Link>}
                 </div>
                 </div>
