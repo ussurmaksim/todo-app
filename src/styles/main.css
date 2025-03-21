@@ -1,5 +1,6 @@
 body {
     background-color: #222;
+    color: #fff;
 }
 
 .startPage {
@@ -31,7 +32,7 @@ body {
     text-align: center;
 }
 
-.regForm input {
+.regFormInput {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -78,6 +79,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     align-items: center;
     width: 100%;
     padding: 0;
+    gap: 30px;
 
 }
 
@@ -87,7 +89,6 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .form_radio_btn {
     display: inline-block;
-    margin-right: 10px;
 }
 .form_radio_btn input[type=radio] {
     display: none;
@@ -134,4 +135,99 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .teamHeading {
     font-size: 24px;
     color: #fff;
+    margin: 16px 0;
+}
+
+
+
+
+
+.activity-selector {
+    position: relative;
+    width: 300px;
+    min-height: 50px;
+}
+
+.selected-activities-container {
+    border: 1px solid #ccc;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    /*flex-wrap: wrap;*/
+    min-height: 50px; /* Чтобы всегда была видна рамка даже без выбранных элементов */
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.activityContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.activityContainer span {
+    user-select: none;
+    color: rgba(255,255,255,.5);
+}
+
+.selected-activity {
+    background-color: #daff3e;
+    padding: 3px 5px;
+    margin: 2px;
+    border-radius: 3px;
+    color: #111;
+    font-size: 12px;
+    user-select: none;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #fff;
+    border-top: none;
+    background-color: #111;
+    z-index: 10; /* Убедитесь, что список поверх других элементов */
+    overflow: auto;
+    max-height: 150px;
+}
+
+.dropdown-item {
+    padding: 5px;
+    cursor: pointer;
+    background-color: #222222;
+    color: #fff;
+}
+
+.dropdown-item:hover {
+    background-color: #daff3e;
+    color: #111111;
+}
+
+.dropdown-item.selected {
+    /*background-color: #daff3e;*/
+    /*color: #111;*/
+    display: none;
+}
+
+.dropdown-item.active {
+    background-color: #daff3e;
+    color: #111;
+}
+
+.role-selector {
+    position: relative;
+    width: 100%;
+    min-height: 50px;
+}
+
+.role-selector-container {
+    border: 1px solid #ccc;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    min-height: 50px;
+    justify-content: space-between;
+    align-items: center;
 }

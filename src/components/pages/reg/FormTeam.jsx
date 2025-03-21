@@ -1,26 +1,43 @@
 import React from "react"
 import SizePeopleReg from "../../common/SizePeopleReg";
-import OptionActivity from "../../common/OptionActivity";
+import ActivitySelector from "../../common/ActivitySelector";
+import RoleSelector from "../../common/RoleSelector";
 
 class FormTeam extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            amountPeopleJSON: [
+            amountPeople: [
                 {
                     id: 1,
                     size: "Только я"
                 },
                 {
                     id: 2,
-                    size: "2-6"
+                    size: "2-5"
                 },
                 {
                     id: 3,
                     size: "6-10"
                 },
+                {
+                    id: 4,
+                    size: "11-25"
+                },
+                {
+                    id: 5,
+                    size: "26-50"
+                },
+                {
+                    id: 6,
+                    size: "51-100"
+                },
+                {
+                    id: 7,
+                    size: "100+"
+                }
             ],
-            amountPeopleSelected: "",
+            amountPeopleSelected: this.props.amountWorkers,
 
             activitiesPeople: [
                 {
@@ -29,71 +46,83 @@ class FormTeam extends React.Component {
                 },
                 {
                     id: 2,
+                    userActivity: "Создание продукта1"
+                },
+                {
+                    id: 3,
+                    userActivity: "Создание"
+                },
+                {
+                    id: 4,
                     userActivity: "Создание продукта"
                 },
                 {
-                    id: 55,
-                    userActivity: "Создание"
+                    id: 5,
+                    userActivity: "Создание продукта"
+                },
+                {
+                    id: 6,
+                    userActivity: "Создание продукта"
+                },
+            ],
+            selectedActivities: this.props.activity,
+
+            roles: [
+                {
+                    id: 1,
+                    userRole: "Член команды"
+                },
+                {
+                    id: 2,
+                    userRole: "Лидер команды"
+                },
+                {
+                    id: 3,
+                    userRole: "Владелец бизнеса"
                 }
             ],
-            selectedActivities: [],
+            selectedRole: this.props.role,
         }
 
         this.handleActivity = this.handleActivity.bind(this);
+        this.handleAmountPeopleSelected = this.handleAmountPeopleSelected.bind(this);
+        this.handleRole = this.handleRole.bind(this);
     }
 
+    handleActivity = (selectedActivities) => {
+        this.setState({selectedActivities})
+    }
 
-    handleActivity = (id) => {
-        this.setState( (prevState) => {
-            const { selectedActivities } = prevState;
+    handleAmountPeopleSelected = (amountPeopleSelected) => {
+        this.setState({amountPeopleSelected})
+    }
 
-            if(selectedActivities.includes(id)){
-                return {
-                    selectedActivities: selectedActivities.filter((item) => item !== id),
-                }
-            } else {
-                return {
-                    selectedActivities: [...selectedActivities, id]
-                }
-            }
-        })
+    handleRole = (selectedRole) => {
+        this.setState({selectedRole})
     }
 
     render() {
+        const {selectedActivities, amountPeopleSelected, selectedRole} = this.state;
         return (
             <form className="form mt-5 d-flex flex-column"
-                  onSubmit={(e) => {this.props.handleNext(e);}}
+                  onSubmit={(e) => {
+                      this.props.setFormTeamData(amountPeopleSelected, selectedActivities, selectedRole);
+                      this.props.handleNext(e);
+                  }}
             >
                 <p className="teamHeading">Со скольки людьми ты будешь работать?</p>
-                <ul className="listSizes">
-                    {
-                        this.state.amountPeopleJSON.map((item) => (
-                            <li key={item.id} className="listSizeItem">
-                                <SizePeopleReg item={item} />
-                            </li>
-                        ))
-                    }
-                </ul>
+
+                <SizePeopleReg amountPeople={this.state.amountPeople} amountPeopleSelected={this.state.amountPeopleSelected} handleAmountPeopleSelected={this.handleAmountPeopleSelected}/>
 
                 <p className="teamHeading">Какие активности ты будешь выполнять?</p>
-                <select name="" id="" multiple // Добавлено свойство multiple для выбора нескольких опций
-                        onChange={(e) => { // Добавлен обработчик onChange для отслеживания изменений
-                            const selectedOptions = Array.from(e.target.selectedOptions).map(option => parseInt(option.value)); // Получаем массив выбранных ID
-                            this.setState({ selectedActivities: selectedOptions }); // Обновляем состояние
-                        }}
-                >
-                    {
-                        this.state.activitiesPeople.map((item) => (
-                            <option value={item.id} key={item.id}> {/* Используем item.id как value */}
-                                <OptionActivity item={item} />
-                            </option>
-                        ))
-                    }
-                </select>
-                <div>
-                    <p className="text-white">Selected Activities: {this.state.selectedActivities.join(', ')}</p> {/* Отображение выбранных ID */}
-                </div>
-                <button className="btn btn-dark w-100">
+
+                <ActivitySelector activitiesPeople={this.state.activitiesPeople} handleActivity={this.handleActivity} selectedActivities={this.state.selectedActivities}/>
+
+                <p className="teamHeading">Какая у тебя роль?</p>
+
+                <RoleSelector roles={this.state.roles} selectedRole={this.state.selectedRole} handleRole={this.handleRole} />
+
+                <button className="btn btn-dark w-100 mt-5">
                     Продолжить
                 </button>
             </form>

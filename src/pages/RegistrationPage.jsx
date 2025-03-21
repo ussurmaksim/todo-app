@@ -13,8 +13,8 @@ class RegPage extends React.Component {
             phone: "",
             age: "",
             amountWorkers: 1,
-            job: "",
-            role: "",
+            activity: [],
+            role: 1,
             email: "",
             password: "",
             password2: "",
@@ -24,6 +24,7 @@ class RegPage extends React.Component {
         this.handleNext = this.handleNext.bind(this);
         this.handleBack = this.handleBack.bind(this);
         this.getFormInfoData = this.getFormInfoData.bind(this);
+        this.setFormTeamData = this.setFormTeamData.bind(this);
     }
 
     handleNext = (e) => {
@@ -45,7 +46,9 @@ class RegPage extends React.Component {
         this.setState({name, phone, age});
     }
 
-
+    setFormTeamData = (amountWorkers, activity, role) => {
+        this.setState({ amountWorkers, activity, role });
+    }
 
 
 
@@ -73,7 +76,13 @@ class RegPage extends React.Component {
                                         age={this.state.age}
                                     />
                             :
-                            step === 2 ? <FormTeam handleNext={this.handleNext} />
+                            step === 2 ? <FormTeam
+                                    handleNext={this.handleNext}
+                                    setFormTeamData={this.setFormTeamData}
+                                    activity={this.state.activity}
+                                    amountWorkers={this.state.amountWorkers}
+                                    role={this.state.role}
+                                />
                                 :
                                 <FormLogin handleNext={this.handleNext} />
                     }

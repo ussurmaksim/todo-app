@@ -1,18 +1,48 @@
 import React from "react"
 
 class SizePeopleReg extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //
-    //     }
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            amountPeopleSelected: this.props.amountPeopleSelected
+        }
+    }
+
+    handleSelector = (id) => {
+        this.setState({amountPeopleSelected: id}, () => {
+            this.props.handleAmountPeopleSelected(id)
+        } )
+    }
+
+    handleChange = (event) => {
+        const id = parseInt(event.target.value, 10); // Важно: Преобразуем value в число
+        this.handleSelector(id);
+    }
+
     render() {
+        const { amountPeopleSelected } = this.state;
+        const { amountPeople } = this.props;
         return (
-            <div className="form_radio_btn">
-                <input id={`radio-${this.props.item.id}`} type="radio" name="radio" value={this.props.item.id} />
-                <label htmlFor={`radio-${this.props.item.id}`}> {this.props.item.size}</label>
-            </div>
+            <ul className="listSizes">
+                {
+                    amountPeople.map((item) => (
+                        <li key={item.id} className="listSizeItem">
+                            <div className="form_radio_btn">
+                                <input
+                                    id={item.id}
+                                    type="radio"
+                                    name="radio"
+                                    value={item.id}
+                                    checked={item.id === amountPeopleSelected}
+                                    onChange={this.handleChange} // Заменили onClick на onChange
+                                />
+                                <label htmlFor={item.id}> {item.size}</label>
+                            </div>
+                        </li>
+                    ))
+                }
+            </ul>
+
         )
     }
 }

@@ -18,11 +18,12 @@ class FormInfo extends React.Component {
     }
 
     handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value}, () => {
-            this.validate();
-        });
+        this.setState({[e.target.name]: e.target.value.trim()}
 
-    }
+    // , () => {
+        //             this.validate();
+        //         }
+        );}
 
     validate = () => {
         let nameError = "";
@@ -33,12 +34,15 @@ class FormInfo extends React.Component {
         if (!this.state.name) {
             nameError = "Введите имя";
             isValid = false;
+        }else if (this.state.name.length > 30) {
+            nameError = "Поле имя должно содержать меньше 30 символов";
+            isValid = false;
         }
 
         if (!this.state.phone) {
             phoneError = "Введите телефон"
             isValid = false;
-        }else if(!/^\d+$/.test(this.state.phone)) {
+        }else if(/^\+7\d+$/.test(this.state.phone)) {
             phoneError = "телефон должен содержать только цифры"
             isValid = false;
         }
@@ -63,32 +67,34 @@ class FormInfo extends React.Component {
         return (
             <form className="form mt-5 d-flex flex-column"
                   onSubmit={(e) => {
-                      this.props.handleNext(e);
+                      e.preventDefault();
+                      this.validate();
                       if (this.validate()) {
                           this.setState({
                               nameError: "",
                               phoneError: "",
                               ageError: "",
                           })
+                          this.props.getFormInfoData(this.state.name, this.state.phone, this.state.age);
+                          this.props.handleNext(e);
                       }
-                      this.props.getFormInfoData(this.state.name, this.state.phone, this.state.age);
                   }}
             >
 
-                <input type="text" name="name" placeholder="Введите ваше имя" value={this.state.name}
+                <input className="regFormInput" type="text" name="name" placeholder="Введите ваше имя" value={this.state.name}
                        onChange={(e) => this.handleChange(e)}/>
                     {this.state.nameError && (<p className="errorInput">{this.state.nameError}</p>)}
 
-                <input type="tel" name="phone" placeholder="Введите ваш телефон" value={this.state.phone}
+                <input className="regFormInput" type="tel" name="phone" placeholder="Введите ваш телефон" value={this.state.phone}
                        onChange={(e) => this.handleChange(e)}/>
                     {this.state.phoneError && (<p className="errorInput">{this.state.phoneError}</p>)}
 
-                <input type="number" name="age" placeholder="Введите ваш возраст" value={this.state.age}
+                <input className="regFormInput" type="number" name="age" placeholder="Введите ваш возраст" value={this.state.age}
                        onChange={(e) => this.handleChange(e)}/>
                     {this.state.ageError && (<p className="errorInput">{this.state.ageError}</p>)}
 
 
-                <button className="btn btn-dark w-100 mt-3" disabled={!this.state.isValid}>
+                <button className="btn btn-dark w-100 mt-3">
                     Продолжить
                 </button>
             </form>
