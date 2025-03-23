@@ -2,7 +2,8 @@ import React from "react"
 import FormInfo from "../components/pages/reg/FormInfo";
 import FormTeam from "../components/pages/reg/FormTeam";
 import FormLogin from "../components/pages/reg/FormLogin";
-import {Link} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
+import { signUp } from "../services/api"
 
 class RegPage extends React.Component {
     constructor(props) {
@@ -17,14 +18,16 @@ class RegPage extends React.Component {
             role: 1,
             email: "",
             password: "",
-            password2: "",
+
             regStep: 1,
+            isValid: false,
         }
 
         this.handleNext = this.handleNext.bind(this);
         this.handleBack = this.handleBack.bind(this);
         this.getFormInfoData = this.getFormInfoData.bind(this);
         this.setFormTeamData = this.setFormTeamData.bind(this);
+        this.setLoginData = this.setLoginData.bind(this);
     }
 
     handleNext = (e) => {
@@ -50,14 +53,37 @@ class RegPage extends React.Component {
         this.setState({ amountWorkers, activity, role });
     }
 
+    setLoginData = (email, password) => {
+        this.setState({email, password});
+    }
+
+    validReg = () => {
+        this.setState({ isValid: true });
+    }
 
 
 
+    postSignUp = () => {
+        signUp({
+            name: this.state.name,
+            phoneNumber: this.state.phone,
+            age: this.state.age,
+            teamSize: this.state.amountWorkers,
+            userActivities: this.state.activity,
+            userRole: this.state.role,
+            email: this.state.email,
+            password: this.state.password,
+        })
+    }
 
     render() {
         const step = this.state.regStep;
+        if (this.state.isValid) {
+            return (
+                <Navigate to={'/login'} />
+            )
+        }
         return (
-
             <div className="container">
                 <h1 className="regHeading">{step !== 2 ? "Регистрация" : "Расскажи о себе"}</h1>
                 <div className="stepsWrapper row gap-5">
@@ -84,7 +110,14 @@ class RegPage extends React.Component {
                                     role={this.state.role}
                                 />
                                 :
-                                <FormLogin handleNext={this.handleNext} />
+                                <FormLogin
+                                    handleNext={this.handleNext}
+                                    setLoginData = {this.setLoginData}
+                                    email={this.state.email}
+                                    password={this.state.password}
+                                    validReg={this.validReg}
+                                    postSignUp={this.postSignUp}
+                                />
                     }
 
 

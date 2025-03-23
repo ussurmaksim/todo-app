@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/main.css'
 import HomePage from "./pages/HomePage";
 import RegistrationPage from "./pages/RegistrationPage";
+import LoginPage from "./pages/LoginPage";
 
 class App extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class App extends React.Component {
                     <Route path="/" element={<StartPage />} />
                     <Route path="/Home" element={<HomePage />} />
                     <Route path="/registration" element={<RegistrationPage />} />
+                    <Route path={"/login"} element={<LoginPage />} />
                 </Routes>
             </BrowserRouter>
         </>

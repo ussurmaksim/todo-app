@@ -76,7 +76,7 @@ class ActivitySelector extends React.Component {
                                     }}
                                 >
                         {this.getActivityName(id)}
-                                            <MdOutlineClose className="ms-1 my-auto" />
+                        <MdOutlineClose className="ms-1 my-auto" />
                       </div>
                                     ))
                                 ) : (
