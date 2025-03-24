@@ -3,11 +3,28 @@ body {
     color: #fff;
 }
 
-.startPage {
+.btn-custom-white {
+    color: #7A7A7A;
+    background-color: #E4E4E4;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-custom-white:hover, .btn-custom-white:focus {
+    background-color: #daff3e ;
+    color: #111111;
+}
+
+.help-link {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.start-page {
     height: 100vh;
 }
 
-.stepsWrapper {
+.steps-wrapper {
     height: 100%;
     display: flex;
     justify-content: center;
@@ -25,14 +42,14 @@ body {
     background-color: #DAFF3E;
 }
 
-.regHeading {
+.reg-heading {
     font-size: 50px;
     color: #fff;
     margin: 32px auto;
     text-align: center;
 }
 
-.regFormInput {
+.reg-form-input {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -43,25 +60,25 @@ body {
     background-color: #111;
 }
 
-.regForm input:focus {
+.reg-form input:focus {
     outline: none;
 }
 
-.regForm input::placeholder {
+.reg-form input::placeholder {
     color: #c3c3c3;
 }
 
-.regForm {
+.reg-form {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.regForm .form {
+.reg-form .form {
     width: 550px;
 }
 
-.errorInput {
+.error-input {
     margin: -13px 0 0;
     color: #E90000;
     font-size: 12px;
@@ -72,7 +89,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-.listSizes {
+.list-sizes {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -83,17 +100,17 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 }
 
-.listSizeItem {
+.list-size-item {
     list-style-type: none;
 }
 
-.form_radio_btn {
+.form-radio-btn {
     display: inline-block;
 }
-.form_radio_btn input[type=radio] {
+.form-radio-btn input[type=radio] {
     display: none;
 }
-.form_radio_btn label {
+.form-radio-btn label {
     display: inline-block;
     cursor: pointer;
     border: 1px solid #fff;
@@ -109,30 +126,30 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 /* Checked */
-.form_radio_btn input[type=radio]:checked + label {
+.form-radio-btn input[type=radio]:checked + label {
     background: #DAFF3E;
     color: #111;
     border: 1px solid #daff3e;
 }
 
 /* Hover */
-.form_radio_btn label:hover {
+.form-radio-btn label:hover {
     background-color: #DAFF3E;
     color: #111;
     border: 1px solid #daff3e;
 }
 
 /* Disabled */
-.form_radio_btn input[type=radio]:disabled + label {
+.form-radio-btn input[type=radio]:disabled + label {
     background: #efefef;
     color: #666;
 }
 
-.btnBack {
+.btn-back {
     color: #fff;
 }
 
-.teamHeading {
+.team-heading {
     font-size: 24px;
     color: #fff;
     margin: 16px 0;
@@ -160,12 +177,12 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 }
 
-.activityContainer {
+.activity-container {
     display: flex;
     flex-wrap: wrap;
 }
 
-.activityContainer span {
+.activity-container span {
     user-select: none;
     color: rgba(255,255,255,.5);
 }
@@ -230,4 +247,17 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     min-height: 50px;
     justify-content: space-between;
     align-items: center;
+}
+
+
+/*LOGIN*/
+
+.login-page {
+    display: flex;
+    height: 100vh;
+}
+
+.login-form {
+    max-width: 500px;
+    margin: auto;
 }

@@ -23,11 +23,11 @@ class SizePeopleReg extends React.Component {
         const { amountPeopleSelected } = this.state;
         const { amountPeople } = this.props;
         return (
-            <ul className="listSizes">
+            <ul className="list-sizes">
                 {
                     amountPeople.map((item) => (
-                        <li key={item.id} className="listSizeItem">
-                            <div className="form_radio_btn">
+                        <li key={item.id} className="list-size-item">
+                            <div className="form-radio-btn">
                                 <input
                                     id={item.id}
                                     type="radio"

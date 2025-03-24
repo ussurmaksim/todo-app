@@ -61,10 +61,10 @@ class ActivitySelector extends React.Component {
         return (
             <div className="activity-selector w-100">
                 <div
-                    className="selected-activities-container regFormInput m-0"
+                    className="selected-activities-container reg-form-input m-0"
                     onClick={this.toggleDropdown}
                 >
-                    <div className="activityContainer">
+                    <div className="activity-container">
                         {selectedActivities.length > 0 ? (
                             selectedActivities.map((id) => (
                                 <div

@@ -85,14 +85,14 @@ class RegPage extends React.Component {
         }
         return (
             <div className="container">
-                <h1 className="regHeading">{step !== 2 ? "Регистрация" : "Расскажи о себе"}</h1>
-                <div className="stepsWrapper row gap-5">
+                <h1 className="reg-heading">{step !== 2 ? "Регистрация" : "Расскажи о себе"}</h1>
+                <div className="steps-wrapper row gap-5">
                     <div className={`step col ${step === 1 ? "active" : ""}`}></div>
                     <div className={`step col ${step === 2 ? "active" : ""}`}></div>
                     <div className={`step col ${step === 3 ? "active" : ""}`}></div>
                 </div>
 
-                <div className="regForm">
+                <div className="reg-form">
                     {
                         step === 1 ? <FormInfo
                                         getFormInfoData = {this.getFormInfoData}
@@ -122,7 +122,7 @@ class RegPage extends React.Component {
 
 
                 <div className="d-flex justify-content-center mt-2">
-                    {step !== 1 && <p className="btn btnBack" onClick={() => {this.handleBack();}}>Назад</p>}
+                    {step !== 1 && <p className="btn btn-back" onClick={() => {this.handleBack();}}>Назад</p>}
                     {step === 1 && <Link to={"/login"}>Уже есть аккаунт? Войдите</Link>}
                 </div>
                 </div>

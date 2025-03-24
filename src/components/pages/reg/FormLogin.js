@@ -49,7 +49,7 @@ class FormLogin extends React.Component {
                 <input
                     value={this.state.email}
                     type="mail"
-                    className="regFormInput"
+                    className="reg-form-input"
                     name="email"
                     placeholder="Введите ваш e-mail"
                     onChange={this.handleChange}
@@ -57,7 +57,7 @@ class FormLogin extends React.Component {
                 <input
                     value={this.state.password}
                     type="password"
-                    className="regFormInput"
+                    className="reg-form-input"
                     name="password"
                     placeholder="Создать пароль"
                     onChange={this.handleChange}
@@ -65,13 +65,13 @@ class FormLogin extends React.Component {
                 <input
                     value={this.state.password2}
                     type="password"
-                    className="regFormInput"
+                    className="reg-form-input"
                     name="password2"
                     placeholder="Подтвердить пароль"
                     onChange={this.handleChange}
                 />
-                {errorPassword && <p className="errorInput">{errorPassword}</p>}
-                <button className="btn btn-dark w-100">Зарегистрироваться</button>
+                {errorPassword && <p className="error-input">{errorPassword}</p>}
+                <button className="btn btn-custom-white">Зарегистрироваться</button>
             </form>
         );
     }

@@ -77,20 +77,20 @@ class FormInfo extends React.Component {
                   }}
             >
 
-                <input className="regFormInput" type="text" name="name" placeholder="Введите ваше имя" value={this.state.name}
+                <input className="reg-form-input" type="text" name="name" placeholder="Введите ваше имя" value={this.state.name}
                        onChange={(e) => this.handleChange(e)}/>
-                    {this.state.nameError && (<p className="errorInput">{this.state.nameError}</p>)}
+                    {this.state.nameError && (<p className="error-input">{this.state.nameError}</p>)}
 
-                <input className="regFormInput" type="tel" name="phone" placeholder="Введите ваш телефон" value={this.state.phone}
+                <input className="reg-form-input" type="tel" name="phone" placeholder="Введите ваш телефон" value={this.state.phone}
                        onChange={(e) => this.handleChange(e)}/>
-                    {this.state.phoneError && (<p className="errorInput">{this.state.phoneError}</p>)}
+                    {this.state.phoneError && (<p className="error-input">{this.state.phoneError}</p>)}
 
-                <input className="regFormInput" type="number" name="age" placeholder="Введите ваш возраст" value={this.state.age}
+                <input className="reg-form-input" type="number" name="age" placeholder="Введите ваш возраст" value={this.state.age}
                        onChange={(e) => this.handleChange(e)}/>
-                    {this.state.ageError && (<p className="errorInput">{this.state.ageError}</p>)}
+                    {this.state.ageError && (<p className="error-input">{this.state.ageError}</p>)}
 
 
-                <button className="btn btn-dark w-100 mt-3">
+                <button className="btn btn-custom-white">
                     Продолжить
                 </button>
             </form>

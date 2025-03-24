@@ -29,7 +29,7 @@ class RoleSelector extends React.Component {
     render() {
         return (
             <div className="role-selector ">
-                <div className="role-selector-container regFormInput m-0" onClick={() => this.handleSelector()}>
+                <div className="role-selector-container reg-form-input m-0" onClick={() => this.handleSelector()}>
                     <span> {this.state.roles[this.state.selectedRole-1].userRole}</span>
                     {this.state.dropdownIsOpen ? <IoIosArrowDown /> : <IoIosArrowUp />}
                 </div>

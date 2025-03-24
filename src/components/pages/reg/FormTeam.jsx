@@ -171,7 +171,7 @@ class FormTeam extends React.Component {
                           }
                       }}
                 >
-                    <p className="teamHeading">Со скольки людьми ты будешь работать?</p>
+                    <p className="team-heading">Со скольки людьми ты будешь работать?</p>
 
                     <SizePeopleReg
                         amountPeople={this.state.amountPeople}
@@ -179,7 +179,7 @@ class FormTeam extends React.Component {
                         handleAmountPeopleSelected={this.handleAmountPeopleSelected}
                     />
 
-                    <p className="teamHeading">Какие активности ты будешь выполнять?</p>
+                    <p className="team-heading">Какие активности ты будешь выполнять?</p>
 
                     <ActivitySelector
                         activitiesPeople={this.state.activitiesPeople}
@@ -187,9 +187,9 @@ class FormTeam extends React.Component {
                         selectedActivities={this.state.selectedActivities}
                         validateActivities={this.validateActivities}
                     />
-                    {errorActivity && <p className="errorInput m-0">{errorActivity}</p>}
+                    {errorActivity && <p className="error-input m-0">{errorActivity}</p>}
 
-                    <p className="teamHeading">Какая у тебя роль?</p>
+                    <p className="team-heading">Какая у тебя роль?</p>
 
                     <RoleSelector
                         roles={this.state.roles}
@@ -197,7 +197,7 @@ class FormTeam extends React.Component {
                         handleRole={this.handleRole}
                     />
 
-                    <button className="btn btn-dark w-100 mt-5">
+                    <button className="btn btn-custom-white">
                         Продолжить
                     </button>
                 </form>
