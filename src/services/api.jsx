@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const URL = "https://579fdc114aab8d.lhr.life";
+const URL = "https://f3417f8d229cce.lhr.life";
 const rout = "/api/v1"
 const API_URL = `${URL}${rout}`
 
@@ -35,4 +35,8 @@ export const getUserRoles = async () => {
 
 export const signUp = async (userData) => {
     return await api.post(`/auth/sign-up`, userData);
+}
+
+export const signIn = async (userData) => {
+    return await api.post(`/auth/sign-in`, userData);
 }

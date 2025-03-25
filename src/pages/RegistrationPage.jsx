@@ -34,8 +34,6 @@ class RegPage extends React.Component {
         e.preventDefault();
         if (this.state.regStep <3) {
             this.setState({regStep: this.state.regStep + 1});
-        }else {
-            console.log(this.state.regStep);
         }
     }
 

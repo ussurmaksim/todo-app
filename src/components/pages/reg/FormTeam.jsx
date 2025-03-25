@@ -113,7 +113,6 @@ class FormTeam extends React.Component {
         try {
             const response = await getTeamSizes();
             this.setState({amountPeople: response.data}, () => {
-                console.log(this.state.amountPeople)
                 this.setState({loaded1: true});
             });
         } catch (error) {
@@ -123,7 +122,6 @@ class FormTeam extends React.Component {
         try {
             const response = await getUserActivities();
             this.setState({activitiesPeople: response.data}, () => {
-                console.log(this.state.activitiesPeople)
                 this.setState({loaded2: true});
             });
 
@@ -134,7 +132,6 @@ class FormTeam extends React.Component {
         try {
             const response = await getUserRoles();
             this.setState({roles: response.data}, () => {
-                console.log(this.state.roles)
                 this.setState({loaded3: true});
             });
 
